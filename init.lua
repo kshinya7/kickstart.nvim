@@ -107,6 +107,9 @@ vim.opt.number = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
 
+-- Remove ~from blank lines
+vim.opt.fillchars = { eob = ' ' }
+
 -- Don't show the mode, since it's already in status line
 vim.opt.showmode = false
 
@@ -120,6 +123,11 @@ vim.opt.breakindent = true
 
 -- Save undo history
 vim.opt.undofile = true
+
+-- lower lualine
+-- vim.o.cmdheight = 1
+-- vim.cmd [[ autocmd RecordingEnter * set cmdheight=1 ]]
+-- vim.cmd [[ autocmd RecordingLeave * set cmdheight=0 ]]
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.opt.ignorecase = true
@@ -717,24 +725,24 @@ require('lazy').setup({
     end,
   },
 
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-    'folke/tokyonight.nvim',
-    lazy = false, -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+  -- { -- You can easily change to a different colorscheme.
+  -- Change the name of the colorscheme plugin below, and then
+  -- change the command in the config to whatever the name of that colorscheme is
+  --
+  -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
+  -- 'folke/tokyonight.nvim',
+  -- lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  -- priority = 1000, -- make sure to load this before all the other start plugins
+  -- config = function()
+  -- Load the colorscheme here.
+  -- Like many other themes, this one has different styles, and you could load
+  -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+  -- vim.cmd.colorscheme 'tokyonight-night'
 
-      -- You can configure highlights by doing something like
-      vim.cmd.hi 'Comment gui=none'
-    end,
-  },
+  -- You can configure highlights by doing something like
+  -- vim.cmd.hi 'Comment gui=none'
+  -- end,
+  -- },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
@@ -818,7 +826,7 @@ require('lazy').setup({
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {
   ui = {
     -- If you have a Nerd Font, set icons to an empty table which will use the
