@@ -1,5 +1,6 @@
 return {
   'lewis6991/gitsigns.nvim',
+  event = { 'BufReadPre', 'BufNewFile' },
   opts = {
     signs = {
       add = { text = '+' },
@@ -8,6 +9,7 @@ return {
       topdelete = { text = '‾' },
       changedelete = { text = '~' },
     },
+    current_line_blame = true,
     current_line_blame_opts = {
       delay = 200,
     },

@@ -14,4 +14,21 @@ return {
       vim.cmd [[colorscheme monokai-pro]]
     end,
   },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+  },
+  {
+    'cryptomilk/nightcity.nvim',
+    opts = {
+      style = 'kabuki',
+      font_style = {
+        functions = { bold = false },
+      },
+    },
+  },
+  {
+    'sainnhe/gruvbox-material',
+  },
 }
